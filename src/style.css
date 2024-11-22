@@ -1,0 +1,105 @@
+:root {
+	--padding: 28px;
+	font-family: "Inter Variable", sans-serif;
+}
+
+body {
+	margin: 0;
+	background: oklch(52.7% 0.21 15.6);
+}
+
+main {
+	color: white;
+	height: 100svh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	div {
+		display: inline-block;
+	}
+}
+
+#content {
+	font-size: 2em;
+	max-width: 768px;
+	margin-block: 0;
+	padding: var(--padding) var(--padding);
+
+	#name {
+		font-weight: 600;
+	}
+
+	p {
+		margin-block: 0;
+		margin-bottom: 1em;
+	}
+}
+
+#colors {
+	display: grid;
+	font-family: "JetBrains Mono Variable", monospace;
+	font-size: 1.75em;
+	margin-block: 0;
+	padding-left: var(--padding);
+	padding-bottom: var(--padding);
+
+	th {
+		color: color-mix(in srgb, #e8e8e8, #ffffff00 30%);
+		text-align: left;
+	}
+
+	td {
+		span {
+			margin-left: 16px;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+#snackbar {
+	visibility: hidden;
+	color: #fff;
+	background: #1a1a1a;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: monospace;
+	font-weight: 500;
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	left: 50%;
+	bottom: 24px;
+	transform: translateX(-50%);
+	z-index: 1;
+	position: fixed;
+}
+
+#snackbar.show {
+	visibility: visible;
+	animation: fade-in 300ms, fade-out 300ms 2s;
+}
+
+@keyframes fade-in {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 24px;
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		bottom: 24px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
